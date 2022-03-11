@@ -32,9 +32,6 @@ class Sparse {
       // 
       // Note that internally there are no nodes with a zero coefficient so the
       // zero polynomial is a special case
-      // 
-      // Hint: if the coefficient of the term is 0, do not insert it into 
-      // the sparse polynomial
       friend std::istream& operator >> (std::istream&, Sparse&);
       
       // prints the sparse polynomial with the variable (set with setPrintVariable)
@@ -52,7 +49,6 @@ class Sparse {
 
       // subtract the sparse polynomial g from the sparse polynomial f  i.e. f - g
       // return the difference as a new polynomial
-      // Hint: use the operator * and the operator +
       friend Sparse operator - (const Sparse& f, const Sparse& g);
          
       // changes the character used to output the sparse polynomial
@@ -71,7 +67,6 @@ class Sparse {
       // destructor
       ~Sparse();
 
-      // BONUS
       // compute the derivative of the sparse polynomial
       Sparse derivative() const;
       
@@ -97,8 +92,6 @@ class Sparse {
       // add the term's coefficient to that coefficient
       // So poly is always sorted and never has duplicate terms nor two terms
       // with the same degree.
-      // Do not store a term with a zero coefficient (with the exception of
-      // the zero polynomial which you need not represent with a struct Term )
       Node * poly;
       
       // when outputting the polynomial, 
